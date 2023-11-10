@@ -90,6 +90,7 @@ const Game = () => {
                 <Board
                     squares={current.squares}
                     onClick={i => handleClick(i)}
+                    winningMoves={winningMoves}
                 />
             </div>
             <div className="game-info">

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Board from "../Board";
 
 /**
@@ -8,6 +8,7 @@ const Game = () => {
     const [gameHistory, setGameHistory] = useState([{ squares: Array(9).fill(null) }]); // Start of game
     const [stepNumber, setStepNumber] = useState(0);
     const [xIsNext, setXisNext] = useState(true);
+    const [winningMoves, setWinningMoves] = useState(null)
 
     const calculateWinner = (squares) => {
         // cf-camille: possible win combinations
@@ -25,7 +26,10 @@ const Game = () => {
         for (let i = 0; i < lines.length; i++) {
             const [a, b, c] = lines[i];
             // cf-camille: removed the redundant '&&' comparison of 'squares[a] && squares[a] === squares[b]'
-            if (squares[a] === squares[b] && squares[a] === squares[c]) {
+            
+            if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+                // cf-camille: winning moves are established for triggering styling change
+                setWinningMoves(lines[i])
                 return squares[a];
             }
         }
@@ -55,7 +59,7 @@ const Game = () => {
     };
 
     const current = gameHistory[stepNumber];
-    const winner = calculateWinner(current.squares);
+    let winner ;
 
     const moves = gameHistory.map((step, move) => {
         const desc = move ?
@@ -74,6 +78,11 @@ const Game = () => {
     } else {
         status = "Next player: " + (xIsNext ? "X" : "O");
     }
+
+    // winner calculations are moved to useEffect so it's not continuously calling the a re-render on setWinningMoves
+    useEffect(()=> {
+        calculateWinner(current.squares)
+    },[stepNumber])
 
     return (
         <div className="game">

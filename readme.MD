@@ -62,6 +62,10 @@ Please answer the following questions:
 
 3. Are you familiar with Redux? If so what is the basic idea behind it and what would be a good case for using it?
 
+**Redux is a state management tool that is used to sold the issues of data persistence, and state handling across components. It is often seen as the counterpart to React's `useContext` hook, as Redux is typically used in larger scale projects due to it's more complex setup and integration. Redux or state management tools are used when states need to be shared across a large area of the codebase without making extra requests to the server, and cases where prop-drilling would be a hinderance to an app's performance and jeopardize code resuability.**
+
+**A key use case where you would use Redux would be for handling dynamic data on a more global level across your application, as the `Store`, which contains the globally available data, would be the single source of truth for containment and manipulation of the data via the Reducers which make consistent changes to the data, based on the action applied to it.**
+
 4. *If you are interested in the full-stack role* Please take a look at the partial implementation of an express routes in backend/router.js.
     * Thinking of a production application, what issues do you see with this code? *List as many as you like* 
 

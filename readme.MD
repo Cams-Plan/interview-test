@@ -82,6 +82,8 @@ __1. Update the app so that is highlights the winning move.__
 __2. Update the app so that it allows for a named player X and Y, and it keeps a league table of who won each game.__
 3. If you get time, implement something that you think that the app could do and is cool. What other things would you change.
 
+- I would add an overlay on top of the gameboard which would activate once a game has been won. This would stop the users from continuing from halfway after a backtrack.
+
 ### Expectations
  * We don't want you to spend too long on this exercise, just the necessary amount of time to show your front-end and back-end skills. We expect it to take 1.5 hours if you have React experience, longer if you have no React experience. 
     * If you don't answer all questions, that is fine. We prefer depth on a few questions rather than superficial answers.

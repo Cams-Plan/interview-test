@@ -20,7 +20,7 @@ Square.propTypes = {
      *  The value to put in the square
      */
     value: PropTypes.string,
-
+    // the conditional styling switch for winning moves
     winner: PropTypes.bool
 };
 

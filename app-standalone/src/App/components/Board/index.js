@@ -29,14 +29,18 @@ const Board = ({onClick, squares, winningMoves}) => {
               })}
             </div>
             <div className="board-row">
-              {squares.map((square, index)=> (
-                index > 2 && index <=5 ? renderSquare(index ) : null
-              ))}
+              {squares.map((square, index)=> {
+                if (index > 2 && index <=5) {
+                  return  (winningMoves && winningMoves.includes(index) ? renderSquare(index, true): renderSquare(index, false))
+                }  
+              })}
             </div>
             <div className="board-row">
-              {squares.map((square, index)=> (
-                index > 5 && index <=8 ? renderSquare(index ) : null
-              ))}
+              {squares.map((square, index)=> {
+                if (index > 5 && index <=8) {
+                  return  (winningMoves && winningMoves.includes(index) ? renderSquare(index, true): renderSquare(index, false))
+                }    
+              })}
             </div>
         </div>
     )

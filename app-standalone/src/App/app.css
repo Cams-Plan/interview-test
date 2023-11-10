@@ -49,14 +49,27 @@ ol, ul {
 
 .game {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.name-form {
+    margin-bottom: 12px;
+}
+
+.board-area {
+    display: flex;
     flex-direction: row;
     text-align: center;
+    justify-content: center;
 }
 
 .game-info {
     margin-left: 20px;
 }
 
-.appContainer {
-
-}
+/* .appContainer {
+    display: flex;
+    justify-content: center;
+} */

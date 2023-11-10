@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Board from "../Board";
+import NameForm from "../NameForm";
 
 /**
  * A game of tic-tac-toe.
@@ -9,6 +10,7 @@ const Game = () => {
     const [stepNumber, setStepNumber] = useState(0);
     const [xIsNext, setXisNext] = useState(true);
     const [winningMoves, setWinningMoves] = useState(null)
+    const [players, setPlayers] = useState({X: "Player X", O: "Player O"})
 
     const calculateWinner = (squares) => {
         // cf-camille: possible win combinations
@@ -32,6 +34,7 @@ const Game = () => {
                 setWinningMoves(lines[i])
                 return squares[a];
             }
+            // cf-camille: reverts state back if a player backtracks to a move number that isn't a winning one
             winningMoves ? setWinningMoves(null) : null 
         }
 
@@ -80,24 +83,36 @@ const Game = () => {
         status = "Next player: " + (xIsNext ? "X" : "O");
     }
 
-    // winner calculations are moved to useEffect so it's not continuously calling the a re-render on setWinningMoves
+    // cf-camille: winner calculations are moved to useEffect so it's not continuously calling the a re-render on setWinningMoves
     useEffect(()=> {
         calculateWinner(current.squares)
     },[stepNumber])
 
     return (
         <div className="game">
-            <div className="game-board">
+            {stepNumber == 0 ? 
+                <div className="name-form">
+                    <NameForm 
+                    setPlayers={setPlayers}
+                    players={players}
+                    />
+                </div> : <h2 className="players-header"> {players.X} vs {players.O} </h2>
+            }
+            
+            <div className="board-area">
+                <div div className="game-board">
                 <Board
                     squares={current.squares}
                     onClick={i => handleClick(i)}
                     winningMoves={winningMoves}
                 />
+                </div>
+                <div className="game-info">
+                    <div>{status}</div>
+                    <ol>{moves}</ol>
+                </div>  
             </div>
-            <div className="game-info">
-                <div>{status}</div>
-                <ol>{moves}</ol>
-            </div>
+            
         </div>
     );
 };

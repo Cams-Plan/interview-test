@@ -60,6 +60,8 @@ Please answer the following questions:
 
 2. Thinking about a production ready app, what do you think is missing from all the examples? *Hint: the square component in the standalone app has one*
 
+**The application is missing test coverage in all areas apart from the square component in the standalone app. These tests could be administer a lot easier in the _app-standalone_ and _app-redux_ versions of the app since the application structure is more decoupled which makes react testing suites manageable and allow for true unit testing. Testing a highly coupled react app would be more difficult because of the amount of states and components that would need to be accounted for in each test case.**
+
 3. Are you familiar with Redux? If so what is the basic idea behind it and what would be a good case for using it?
 
 **Redux is a state management tool that is used to sold the issues of data persistence, and state handling across components. It is often seen as the counterpart to React's `useContext` hook, as Redux is typically used in larger scale projects due to it's more complex setup and integration. Redux or state management tools are used when states need to be shared across a large area of the codebase without making extra requests to the server, and cases where prop-drilling would be a hinderance to an app's performance and jeopardize code resuability.**

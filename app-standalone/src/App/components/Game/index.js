@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Board from "../Board";
 import NameForm from "../NameForm";
+import WinnerTable from "../WinnersTable";
 
 /**
  * A game of tic-tac-toe.
@@ -14,7 +15,6 @@ const Game = () => {
     const [winTable, setWinTable] = useState([])
 
     const calculateWinner = (squares) => {
-        // cf-camille: possible win combinations
         const lines = [
             [0, 1, 2],
             [3, 4, 5],
@@ -123,6 +123,7 @@ const Game = () => {
                         })}
                         </ol> }
                 </div>
+                
             </div>
             
         </div>

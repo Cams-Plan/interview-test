@@ -67,7 +67,8 @@ const Game = () => {
     };
 
     const current = gameHistory[stepNumber];
-    let winner ;
+    // cf-camille: the winner's name is obtained by finding the square index value of a winning move (i chose index 0 but can be 0-2), and returning it's value (X or O) to the object bracket notation
+    let winner = winningMoves && `${players[current.squares[winningMoves[0]]]}`
 
     const moves = gameHistory.map((step, move) => {
         const desc = move ?
@@ -102,7 +103,6 @@ const Game = () => {
                     />
                 </div> : <h2 className="players-header"> {players.X} vs {players.O} </h2>
             }
-            
             <div className="board-area">
                 <div div className="game-board">
                 <Board
@@ -112,7 +112,7 @@ const Game = () => {
                 />
                 </div>
                 <div className="game-info">
-                    <div>{status}</div>
+                    <div>{ status }</div>
                     <ol>{moves}</ol>
                 </div>
                 <div className="win-column-container">

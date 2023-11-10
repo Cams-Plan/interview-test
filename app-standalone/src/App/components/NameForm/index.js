@@ -22,8 +22,8 @@ const NameForm = ({ setPlayers, players }) => {
   return (
     <>
     <form>
-        <input name='X' placeholder='Player X' onChange={handleChange}></input>
-        <input name='O' placeholder='Player X' onChange={handleChange}></input>
+        <input name='X' placeholder='Player X' onChange={handleChange} id='player-x'></input>
+        <input name='O' placeholder='Player X' onChange={handleChange} id='player-o'></input>
     </form>
     </>
   )

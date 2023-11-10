@@ -19,3 +19,7 @@ My steps:
 1. `npm uninstall react-scripts`
 2. `npm i -D react-scripts`
 
+
+## Trying to get React Testing Library to work
+
+I have experience with React Testing Library, but struggled to install it due to the outdated dependencies, I attempted to make updates, but it was quite complex. In an effort not to waste time, I have put a break on it, but will hopefully send an updated codebase at the next interview.

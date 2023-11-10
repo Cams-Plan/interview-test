@@ -7,6 +7,7 @@ import Square from '../Square';
  * A board for the game of tic-tac-toe.  A 3x3 square.
  */
 const Board = ({onClick, squares}) => {
+    console.log(squares)
     const renderSquare = (i) => (
         <Square
             value={squares[i]}
@@ -17,19 +18,19 @@ const Board = ({onClick, squares}) => {
     return (
         <div>
             <div className="board-row">
-              {renderSquare(0)}
-              {renderSquare(1)}
-              {renderSquare(2)}
+              {squares.map((square, index)=> (
+                index <= 2 ? renderSquare(index) : null
+              ))}
             </div>
             <div className="board-row">
-              {renderSquare(3)}
-              {renderSquare(4)}
-              {renderSquare(5)}
+              {squares.map((square, index)=> (
+                index > 2 && index <=5 ? renderSquare(index) : null
+              ))}
             </div>
             <div className="board-row">
-              {renderSquare(6)}
-              {renderSquare(7)}
-              {renderSquare(8)}
+              {squares.map((square, index)=> (
+                index > 5 && index <=8 ? renderSquare(index) : null
+              ))}
             </div>
         </div>
     )

@@ -14,7 +14,7 @@ I came across this error ``` error:0308010C:digital envelope routines::unsupport
     To ignore, add // eslint-disable-next-line to the line before. 
     ```
 
-- Next I decided that this wasn't a solid enough solution, so I found a solution via freecodecamp which suggested I update react-scripts to the most up-to-date version (v5.0.1)
+- Next I decided that this wasn't a solid enough solution, so I found a solution via [freecodecamp](https://www.freecodecamp.org/news/error-error-0308010c-digital-envelope-routines-unsupported-node-error-solved/) which suggested I update react-scripts to the most up-to-date version (v5.0.1)
 My steps:
 1. `npm uninstall react-scripts`
 2. `npm i -D react-scripts`

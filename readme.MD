@@ -48,6 +48,15 @@ Please answer the following questions:
     
 1. Comparing the app-original and app-standalone code bases. The app-standalone code base has put each component in a separate file and directory structure.   
    * Why do you think that was done, what are the advantages / disadvantages?
+   **This was done as a decoupling measure which means reducing the level of logical or physical dependency between components within an architecture. In react this is done to increase code maintainability and scalability of the application by making it more logical to navigate, and easier to test components in isolation**
+
+   **The biggest advantage of component separation is that it allows for the resuse of smaller components such as cards across and within larger components such pages, by mapping through an array of data and returning a child component with values passed down via props. This renders a traceable and customised version of the component on each iteration, which is the essence and biggest USP of React programming.**
+
+   **Another quality of like advantage is that it makes importing multiple child components into a parent component file easier by placing an _index.js_ containing the list of all functional component exports within the _components_ directory. This can allow developers to use dot notation via `import * as Components from...` or object destructuring to import many components and reduce lines of code that occur with importing every file in isolation.** 
+
+   **A disadvantage is that the state management becomes a little more complex since state can only be shared down to a child component via props, and not upwards to it's parent or an adjacent parent without the use of state management tools such as React Context and Redux. Because of this, it can be more time consuming to plan out state flow for an application.**
+
+   
 
 2. Thinking about a production ready app, what do you think is missing from all the examples? *Hint: the square component in the standalone app has one*
 

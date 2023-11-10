@@ -15,10 +15,6 @@ const NameForm = ({ setPlayers, players }) => {
         }
     }
 
-    const handleSubmit = () => {
-
-    }
-
   return (
     <>
     <form>

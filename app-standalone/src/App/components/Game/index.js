@@ -116,12 +116,13 @@ const Game = () => {
                     <ol>{moves}</ol>
                 </div>
                 <div className="win-column-container">
-                    <h2>Winner's Table</h2>
+                    {/* <h2>Winner's Table</h2>
                     { winTable.length == 0 ? <p>No Winners Yet</p> : 
                         <ol>{winTable.map((win, index)=> {
                             return <li key={index}>{win}</li>
                         })}
-                        </ol> }
+                        </ol> } */}
+                    <WinnerTable winTable={winTable} />
                 </div>
                 
             </div>

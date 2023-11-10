@@ -79,7 +79,7 @@ Please answer the following questions:
 With either the app-standalone or app-redux (**not both** - whichever you are comfortable with), please complete the following changes:
 
 __1. Update the app so that is highlights the winning move.__
-2. Update the app so that it allows for a named player X and Y, and it keeps a league table of who won each game.
+__2. Update the app so that it allows for a named player X and Y, and it keeps a league table of who won each game.__
 3. If you get time, implement something that you think that the app could do and is cool. What other things would you change.
 
 ### Expectations

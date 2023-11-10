@@ -17,7 +17,7 @@ describe('Square', () => {
         expect(onClickHandler).toHaveBeenCalled()
     });
 
-    //testing functionality of the style changing switches
+    //cf-camille: testing functionality of the style changing switches
     it('text turns green and className is "square winning-move" when winner === true', () => {
         const wrapper = shallow(<Square value='X' winner={true} />)
         wrapper.find('button').hasClass('square winning-move')

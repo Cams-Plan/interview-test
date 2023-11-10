@@ -1,6 +1,6 @@
 import React from 'react'
 
-const WinnerTable = (winTable) => {
+const WinnerTable = ({ winTable }) => {
   return (
     <>
     <h2>Winner's Table</h2>

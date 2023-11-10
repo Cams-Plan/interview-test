@@ -10,6 +10,8 @@ const Game = () => {
     const [gameHistory, setGameHistory] = useState([{ squares: Array(9).fill(null) }]); // Start of game
     const [stepNumber, setStepNumber] = useState(0);
     const [xIsNext, setXisNext] = useState(true);
+
+    //cf-camille: winningMoves = list of indexes of the 3-in-a-row
     const [winningMoves, setWinningMoves] = useState(null)
     const [players, setPlayers] = useState({X: "Player X", O: "Player O"})
     const [winTable, setWinTable] = useState([])
@@ -116,12 +118,6 @@ const Game = () => {
                     <ol>{moves}</ol>
                 </div>
                 <div className="win-column-container">
-                    {/* <h2>Winner's Table</h2>
-                    { winTable.length == 0 ? <p>No Winners Yet</p> : 
-                        <ol>{winTable.map((win, index)=> {
-                            return <li key={index}>{win}</li>
-                        })}
-                        </ol> } */}
                     <WinnerTable winTable={winTable} />
                 </div>
                 

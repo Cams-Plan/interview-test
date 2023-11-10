@@ -19,13 +19,13 @@ describe('Square', () => {
 
     //cf-camille: testing functionality of the style changing switches
     it('text turns green and className is "square winning-move" when winner === true', () => {
-        const wrapper = shallow(<Square value='X' winner={true} />)
-        wrapper.find('button').hasClass('square winning-move')
+        const wrapper = shallow(<Square value='X' winner={true} />);
+        wrapper.find('button').hasClass('square winning-move');
     })
 
     it('text color is default and className is "square" when winner == false ', () => {
-        const wrapper = shallow(<Square value='X' winner={false} />)
-        wrapper.find('button').hasClass('square')
+        const wrapper = shallow(<Square value='X' winner={false} />);
+        wrapper.find('button').hasClass('square');
     })
 
 });

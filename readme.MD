@@ -71,6 +71,9 @@ Please answer the following questions:
 4. *If you are interested in the full-stack role* Please take a look at the partial implementation of an express routes in backend/router.js.
     * Thinking of a production application, what issues do you see with this code? *List as many as you like* 
 
+   - The initalisation of the server, connection to the database, and database query via the router is tightly coupled which
+   - Becuase the initialisation of the server isn't separate from everything else, 
+
 ### Coding Challenges
 
 With either the app-standalone or app-redux (**not both** - whichever you are comfortable with), please complete the following changes:

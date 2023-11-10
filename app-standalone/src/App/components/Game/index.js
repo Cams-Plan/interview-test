@@ -32,6 +32,7 @@ const Game = () => {
                 setWinningMoves(lines[i])
                 return squares[a];
             }
+            winningMoves ? setWinningMoves(null) : null 
         }
 
         return null;

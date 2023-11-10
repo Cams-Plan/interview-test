@@ -11,6 +11,7 @@ const Game = () => {
     const [xIsNext, setXisNext] = useState(true);
     const [winningMoves, setWinningMoves] = useState(null)
     const [players, setPlayers] = useState({X: "Player X", O: "Player O"})
+    const [winTable, setWinTable] = useState([])
 
     const calculateWinner = (squares) => {
         // cf-camille: possible win combinations
@@ -27,9 +28,12 @@ const Game = () => {
 
         for (let i = 0; i < lines.length; i++) {
             const [a, b, c] = lines[i];
-            // cf-camille: removed the redundant '&&' comparison of 'squares[a] && squares[a] === squares[b]'
             
             if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+                //cf-camille: only update the win table only if the game is at the end and if winning move isn't active, to remove duplicates.
+                winningMoves && stepNumber == gameHistory.length - 1 ? null :
+                setWinTable([...winTable, players[squares[a]]])
+
                 // cf-camille: winning moves are established for triggering styling change
                 setWinningMoves(lines[i])
                 return squares[a];
@@ -110,7 +114,15 @@ const Game = () => {
                 <div className="game-info">
                     <div>{status}</div>
                     <ol>{moves}</ol>
-                </div>  
+                </div>
+                <div className="win-column-container">
+                    <h2>Winner's Table</h2>
+                    { winTable.length == 0 ? <p>No Winners Yet</p> : 
+                        <ol>{winTable.map((win, index)=> {
+                            return <li key={index}>{win}</li>
+                        })}
+                        </ol> }
+                </div>
             </div>
             
         </div>

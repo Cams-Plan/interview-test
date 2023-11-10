@@ -73,3 +73,10 @@ ol, ul {
     display: flex;
     justify-content: center;
 } */
+
+.win-column-container {
+    margin-left: 20px;
+}
+.win-column-container > h2 {
+    font-size: 19px;
+}

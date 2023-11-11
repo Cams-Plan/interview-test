@@ -89,8 +89,11 @@ __DONE__
 - **I added** a simple conditional render where the winners table notifies players that the win table is empty, as it's be practice to notify users why data presentation areas are empty. e.g. due to lack of data (404) or connect error (500...). 
 
 - **I added** a custom icon for the browser tab that was representative of the application.
+- **I added** a glow to the text of the winning moves that runs after the win. 
 
 - **I would add** a container with .8 opacity on top of the gameboard which would activate once a game has been won. This would stop the users from continuing from halfway after a backtrack.
+
+- **I would add** an advanced mode of [ultimate tic-tac-toe](https://bejofo.net/ttt) game where there are 9 boards merged together to form an overarching board of 9 sections, each with 9 smaller sections.
 
 ### Expectations
  * We don't want you to spend too long on this exercise, just the necessary amount of time to show your front-end and back-end skills. We expect it to take 1.5 hours if you have React experience, longer if you have no React experience. 

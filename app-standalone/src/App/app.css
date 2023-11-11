@@ -1,3 +1,6 @@
+:root {
+    --win: #008000;
+}
 body {
     font: 14px "Century Gothic", Futura, sans-serif;
     margin: 20px;
@@ -36,7 +39,20 @@ ol, ul {
     width: 34px;
 }
 .square.winning-move {
-   color: green;
+   color: #008000;
+   animation: flash 2s;
+}
+
+@keyframes flash {
+    0% {
+        text-shadow: 0
+    }
+    50% {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--win), 0 0 40px var(--win), 0 0 50px var(--win), 0 0 50px var(--win), 0 0 50px var(--win);
+    }
+    100% {
+        text-shadow: 0;
+    }
 }
 
 .square:focus {

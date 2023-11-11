@@ -13,7 +13,8 @@ const Game = () => {
 
     //cf-camille: winningMoves = list of indexes of the 3-in-a-row
     const [winningMoves, setWinningMoves] = useState(null)
-    const [players, setPlayers] = useState({X: "Player X", O: "Player O"})
+    //cf-camille: player names input data or default
+    const [players, setPlayers] = useState({x: "Player X", o: "Player O"})
     const [winTable, setWinTable] = useState([])
 
     const calculateWinner = (squares) => {
@@ -32,15 +33,16 @@ const Game = () => {
             const [a, b, c] = lines[i];
             
             if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-                //cf-camille: only update the win table only if the game is at the end and if winning move isn't active, to remove duplicates.
-                winningMoves && stepNumber == gameHistory.length - 1 ? null :
-                setWinTable([...winTable, players[squares[a]]])
+                //cf-camille: win table only updates if winning move isn't active, to remove duplicates (and the final move has been made as per useEffect).
+                !winningMoves ? 
+                    setWinTable([...winTable, players[squares[a].toLowerCase()]]) : 
+                    null
 
-                // cf-camille: winning moves are established for triggering styling change
+                // cf-camille: winning moves are established for triggering styling change winning squares
                 setWinningMoves(lines[i])
                 return squares[a];
             }
-            // cf-camille: reverts state back if a player backtracks to a move number that isn't a winning one
+            // cf-camille: winningMoves state reverts back if a player backtracks to a move number that isn't a winning one
             winningMoves ? setWinningMoves(null) : null 
         }
 
@@ -69,8 +71,9 @@ const Game = () => {
     };
 
     const current = gameHistory[stepNumber];
-    // cf-camille: the winner's name is obtained by finding the square index value of a winning move (i chose index 0 but can be 0-2), and returning it's value (X or O) to the object bracket notation
-    let winner = winningMoves && `${players[current.squares[winningMoves[0]]]}`
+    // cf-camille: the winner's name is obtained by finding the square index value of a winning move (I chose index 0 but can be 0-2), and returning it's value (x or o) to the object bracket notation
+    let winner = winningMoves && stepNumber > 0 ? 
+        `${players[current.squares[winningMoves[0]].toLowerCase()]}`: "";
 
     const moves = gameHistory.map((step, move) => {
         const desc = move ?
@@ -87,26 +90,29 @@ const Game = () => {
     if (winner) {
         status = "Winner: " + winner;
     } else {
-        status = "Next player: " + (xIsNext ? "X" : "O");
+        status = "Current Move: " + (xIsNext ? players.x : players.o);
     }
 
-    // cf-camille: winner calculations are moved to useEffect so it's not continuously calling the a re-render on setWinningMoves
+    // cf-camille: winner calculations are moved to useEffect so it's not continuously calling the a re-render on setWinningMoves.
     useEffect(()=> {
+        //cf-camille: this function is called when a new move is made.
         calculateWinner(current.squares)
-    },[stepNumber])
+    },[gameHistory])
 
     return (
         <div className="game">
+            {/* cf-camille: player name states re-render at stepNumber 0 to allow for name changes each round */}
             {stepNumber == 0 ? 
                 <div className="name-form">
                     <NameForm 
                     setPlayers={setPlayers}
                     players={players}
                     />
-                </div> : <h2 className="players-header"> {players.X} vs {players.O} </h2>
+                </div> : 
+                <h2 className="players-header"> {players.x} vs {players.o} </h2>
             }
             <div className="board-area">
-                <div div className="game-board">
+                <div className="game-board">
                 <Board
                     squares={current.squares}
                     onClick={i => handleClick(i)}

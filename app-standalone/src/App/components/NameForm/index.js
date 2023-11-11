@@ -6,14 +6,14 @@ const NameForm = ({ setPlayers, players }) => {
         const name = e.target.name
        
         if (name == "O") {
-             //cf-camille: only overwrite 'O' value
+             //cf-camille: only overwrite 'o' value
             setPlayers({
-            ...players, O : e.target.value
+            ...players, o : e.target.value
         })
         } else {
-            //cf-camille: only overwrite 'O' value
+            //cf-camille: only overwrite 'x' value
             setPlayers({
-                ...players, X : e.target.value
+                ...players, x : e.target.value
             })
         }
     }
@@ -21,8 +21,8 @@ const NameForm = ({ setPlayers, players }) => {
   return (
     <>
     <form>
-        <input name='X' placeholder='Player X' onChange={handleChange} id='player-x'></input>
-        <input name='O' placeholder='Player X' onChange={handleChange} id='player-o'></input>
+        <input name='X' placeholder='e.g. Player X' onChange={handleChange} id='player-x'></input>
+        <input name='O' placeholder='e.g. Player O' onChange={handleChange} id='player-o'></input>
     </form>
     </>
   )
